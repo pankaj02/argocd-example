@@ -13,5 +13,8 @@ spec:
     repoURL: "https://github.com/pankaj02/argocd-example.git"
     targetRevision: main
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
