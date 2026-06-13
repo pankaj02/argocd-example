@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Helm build artifacts
+*.tgz
+charts/
+
+# Claude Code
+.claude/
+
+# Misc
+*.log
+*.bak
+*.tmp
