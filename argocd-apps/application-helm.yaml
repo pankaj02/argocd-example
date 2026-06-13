@@ -12,6 +12,8 @@ spec:
     path: product-catalog/helm/product-catalog
     repoURL: "https://github.com/pankaj02/argocd-example.git"
     targetRevision: main
+    helm:
+      releaseName: product-catalog
   syncPolicy:
     automated:
       prune: true
