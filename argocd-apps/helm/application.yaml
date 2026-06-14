@@ -1,17 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: product-catalog
+  name: product-catalog-helm
   namespace: argocd
 spec:
   destination:
-    namespace: product-catalog
+    namespace: product-catalog-helm
     server: "https://kubernetes.default.svc"
   project: default
   source:
-    path: product-catalog/deployments
+    path: workloads/product-catalog/helm/product-catalog
     repoURL: "https://github.com/pankaj02/argocd-example.git"
     targetRevision: main
+    helm:
+      releaseName: product-catalog
+      valueFiles:
+        - values-dev.yaml
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

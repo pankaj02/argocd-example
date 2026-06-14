@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: product-catalog
+  namespace: argocd
+spec:
+  destination:
+    namespace: product-catalog
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    path: workloads/product-catalog/deployments
+    repoURL: "https://github.com/pankaj02/argocd-example.git"
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

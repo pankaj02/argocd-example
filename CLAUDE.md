@@ -8,13 +8,16 @@ This is an Argo CD example repository containing Kubernetes Application manifest
 
 ## Repository Structure
 
-- `argocd-apps/` — Argo CD `Application` custom resources that tell Argo CD what to deploy and where
-  - `application.yaml` — deploys `product-catalog` (plain YAML) to namespace `product-catalog`
-  - `application-helm.yaml` — deploys `product-catalog` (Helm chart) to namespace `product-catalog-helm`
-- `product-catalog/` — Kubernetes resources for the product-catalog microservice
-  - `deployments/` — plain-YAML manifests (Deployment, Service, Ingress)
-  - `helm/product-catalog/` — Helm chart with templates, values, and helpers
-- Both Application manifests source from `https://github.com/pankaj02/argocd-example.git` (branch `main`)
+- `argocd-apps/` — Argo CD examples, one subfolder per pattern
+  - `plain-yaml/application.yaml` — deploys `product-catalog` from plain YAML manifests
+  - `helm/application.yaml` — deploys `product-catalog` from a Helm chart
+  - `app-of-apps/` — App of Apps pattern example
+    - `root-application.yaml` — root Application that manages child apps in `apps/`
+    - `apps/` — child Application manifests managed by the root app
+- `workloads/` — Kubernetes workload manifests, one subfolder per microservice
+  - `product-catalog/deployments/` — plain-YAML manifests (Deployment, Service, Ingress)
+  - `product-catalog/helm/product-catalog/` — Helm chart with templates, values, and helpers
+- All Application manifests source from `https://github.com/pankaj02/argocd-example.git` (branch `main`)
 
 
 ## Key Conventions

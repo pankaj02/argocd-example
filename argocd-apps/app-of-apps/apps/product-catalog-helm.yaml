@@ -9,7 +9,7 @@ spec:
     server: "https://kubernetes.default.svc"
   project: default
   source:
-    path: product-catalog/helm/product-catalog
+    path: workloads/product-catalog/helm/product-catalog
     repoURL: "https://github.com/pankaj02/argocd-example.git"
     targetRevision: main
     helm:
